@@ -37,8 +37,8 @@ void Input::mouseButtonEvent(const SDL_Event &event) {
     this->pressedButtons[event.button.button] = true;
 }
 
-SDL_Point Input::getMousePos() {
-    return this->mousePos;
+const SDL_Point* Input::getMousePos() const {
+    return &this->mousePos;
 }
 
 bool Input::wasKeyPressed(SDL_Scancode key) {

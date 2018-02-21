@@ -1,12 +1,11 @@
 #include <SDL.h>
-#include <SDL_image.h>
 
 #include "Graphics.h"
 #include "globals.h"
 
 Graphics::Graphics() {
-    SDL_CreateWindowAndRenderer(globals::WINDOW_WIDTH, globals::WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE, &this->window, &this->renderer);
-    SDL_SetWindowTitle(this->window, "Game");
+    SDL_CreateWindowAndRenderer(globals::WINDOW_WIDTH, globals::WINDOW_HEIGHT, 0, &this->window, &this->renderer);
+    SDL_SetWindowTitle(this->window, "Particles");
 }
 
 Graphics::~Graphics() {
@@ -14,15 +13,12 @@ Graphics::~Graphics() {
     SDL_DestroyWindow(this->window);
 }
 
-SDL_Surface* Graphics::loadImage(const std::string &filepath) {
-    if (this->spriteSheets.count(filepath) == 0) {
-        this->spriteSheets[filepath] = IMG_Load(filepath.c_str());
-    }
-    return this->spriteSheets[filepath];
+void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha) {
+    SDL_SetRenderDrawColor(this->renderer, r, g, b, alpha);
 }
 
-void Graphics::blitSurface(SDL_Texture *source, SDL_Rect *sourceRect, SDL_Rect *destRect) {
-    SDL_RenderCopy(this->renderer, source, sourceRect, destRect);
+void Graphics::drawPixel(int x, int y) {
+    SDL_RenderDrawPoint(this->renderer, x, y);
 }
 
 void Graphics::flip() {

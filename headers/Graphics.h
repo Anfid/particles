@@ -15,26 +15,9 @@ public:
     Graphics();
     ~Graphics();
 
-    /* SDL_Surface* loadImage(...)
-     * Loads an image into spriteSheets map if it doesn't already exist.
-     * As a result each image will only be loaded once.
-     * Returns the image from the map whether it was just loaded or not.
-     */
-    SDL_Surface* loadImage(const std::string &filepath);
-
-    /* void blitSurface(...)
-     * Draws a texture to a certain part of the screen
-     */
-    void blitSurface(SDL_Texture* source, SDL_Rect* sourceRect, SDL_Rect* destRect);
-
-    /* void flip(...)
-     * Renders everything to the screen
-     */
+    void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha);
+    void drawPixel(int x, int y);
     void flip();
-
-    /* void clear(...)
-     * Clears the screen
-     */
     void clear();
 
     SDL_Renderer* getRenderer() const;

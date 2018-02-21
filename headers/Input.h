@@ -17,7 +17,8 @@ public:
     void keyDownEvent(const SDL_Event &event);
 
     void mouseButtonEvent(const SDL_Event &event);
-    SDL_Point getMousePos();
+
+    const SDL_Point* getMousePos() const;
 
     bool wasKeyPressed(SDL_Scancode key);
     bool wasKeyReleased(SDL_Scancode key);

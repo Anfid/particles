@@ -6,6 +6,10 @@
 class Graphics;
 class Input;
 
+struct FloatPoint {
+    float x, y;
+};
+
 class Particle {
 public:
     Particle() = delete;
@@ -18,10 +22,9 @@ public:
 private:
     int getDistance(const SDL_Point *point) const;
 
-    // todo: use struct with float instead of int
     const SDL_Point origin;
-    SDL_Point position;
-    SDL_Point vector;
+    FloatPoint position;
+    FloatPoint vector;
 
 };
 

@@ -15,7 +15,7 @@ App::App() {
     for (int x = 0; x < globals::FIELD_WIDTH; ++x) {
         this->particles.push_back(std::vector<Particle*>());
         for (int y = 0; y < globals::FIELD_HEIGHT; ++y) {
-            this->particles[x].push_back(new Particle(x * 3, y * 3));
+            this->particles[x].push_back(new Particle(x * 3 + 75, y * 3 + 50));
         }
     }
 
